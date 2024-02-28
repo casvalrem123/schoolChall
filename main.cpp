@@ -5,7 +5,6 @@
 struct Node{
     int counter;
     char letter, lower, higher; 
-    
     Node() : counter(1), letter(0), lower(0), higher(0) {}
 }; 
 
@@ -22,9 +21,8 @@ int checkCounterTree(const std::string message){
             message_modified.push_back((char)(message[i] + 32)); 
         }
     }
-    if(message.length() <= 1){
+    if(message.length() <= 1)
         return 0; 
-    }
 
     std::unordered_map<char, Node> keys; 
     for (char it : message_modified){
@@ -39,9 +37,8 @@ int checkCounterTree(const std::string message){
         bool nodePut = false; 
         char k = message_modified[0]; 
 
-        if(!i){
+        if(!i)
             nodePut = true; 
-        } 
         
         while(!nodePut){
             if(iter.letter == keys[k].letter){
@@ -76,6 +73,6 @@ int checkCounterTree(const std::string message){
 }
 
 int main() {
-    std::cout << checkCounterTree("the quick brown fox jumped over the lazy river") << "\n"; 
+    std::cout << checkCounterTree("the quick brown fox jumped over the lazy river") << std::endl; 
     return 0; 
 }
